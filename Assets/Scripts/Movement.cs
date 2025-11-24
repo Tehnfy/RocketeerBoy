@@ -9,6 +9,9 @@ public class Movement : MonoBehaviour
     [SerializeField] float rotateSpeed = 122f;
     [SerializeField] float thrustSpeed = 12f;
     [SerializeField] AudioClip engineSound;
+    [SerializeField] ParticleSystem thustParticles;
+    [SerializeField] ParticleSystem rightThustParticles;
+    [SerializeField] ParticleSystem leftThustParticles;
 
     Rigidbody rb;
     AudioSource thrusterSound;
@@ -28,6 +31,7 @@ public class Movement : MonoBehaviour
     {
         ControlThrust();
         ProcessRotation();
+        ThrustParticles();
     }
     void Update()
     {
@@ -61,10 +65,13 @@ public class Movement : MonoBehaviour
         if (rotationInput < 0)
         {
             RotationSpeed(rotateSpeed);
+            leftThustParticles.Play();
+
         }
         else if (rotationInput > 0)
         {
             RotationSpeed(-rotateSpeed);
+            rightThustParticles.Play();
         }
     }
 
@@ -73,5 +80,12 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = true;
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.fixedDeltaTime);
         rb.freezeRotation = false;
+    }
+    void ThrustParticles()
+    {
+        if (thrust.IsPressed())
+        {
+            thustParticles.Play();
+        }
     }
 }

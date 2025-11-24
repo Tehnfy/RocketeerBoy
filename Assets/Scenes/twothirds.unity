@@ -845,6 +845,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1119819091412866662, guid: 9f39838d2cd5cf64599101ee245a4c1a, type: 3}
+      propertyPath: winParticles
+      value: 
+      objectReference: {fileID: 679521615}
     - target: {fileID: 3522688430183290297, guid: 9f39838d2cd5cf64599101ee245a4c1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.79
@@ -894,6 +898,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f39838d2cd5cf64599101ee245a4c1a, type: 3}
+--- !u!198 &679521615 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6457210688364011825, guid: 9f39838d2cd5cf64599101ee245a4c1a, type: 3}
+  m_PrefabInstance: {fileID: 679521614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
