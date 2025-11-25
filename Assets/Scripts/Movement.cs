@@ -65,13 +65,15 @@ public class Movement : MonoBehaviour
         if (rotationInput < 0)
         {
             RotationSpeed(rotateSpeed);
-            leftThustParticles.Play();
+            rightThustParticles.Play();
+            leftThustParticles.Stop();
 
         }
         else if (rotationInput > 0)
         {
             RotationSpeed(-rotateSpeed);
-            rightThustParticles.Play();
+            leftThustParticles.Play();
+            rightThustParticles.Stop();
         }
     }
 

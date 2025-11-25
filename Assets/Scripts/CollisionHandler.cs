@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.WSA;
@@ -12,8 +13,11 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem winParticles;
     [SerializeField] ParticleSystem crashParticles;
 
+  
+
     AudioSource audioSource;
     bool isControllable = true;
+    bool isCollidable = true;
 
     void Start()
     {
@@ -21,7 +25,7 @@ public class CollisionHandler : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if(!isControllable)
+        if(!isControllable || !isCollidable)
         {
             return;
         }
@@ -75,16 +79,32 @@ public class CollisionHandler : MonoBehaviour
 
     void LoadNextLevel()
     {
-            isControllable = false;
-            Debug.Log("Finish achieved");
-            int currentScene = SceneManager.GetActiveScene().buildIndex;
-            int nextScene = currentScene + 1;
+        isControllable = false;
+        Debug.Log("Finish achieved");
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        int nextScene = currentScene + 1;
 
-            if (nextScene == SceneManager.sceneCountInBuildSettings)
-            {
-                nextScene = 0;
-            }
-            
-            SceneManager.LoadScene(nextScene);
+        if (nextScene == SceneManager.sceneCountInBuildSettings)
+        {
+            nextScene = 0;
         }
+
+        SceneManager.LoadScene(nextScene);
+    }
+    void Update()
+    {
+        RespondToDebugKeys();
+    }
+        void RespondToDebugKeys()
+    {
+        if (Keyboard.current.lKey.isPressed)
+        {
+            LoadNextLevel();
+        }
+        else if (Keyboard.current.cKey.wasPressedThisFrame)
+        {
+            isCollidable = !isCollidable;
+            Debug.Log("Collissions Toggled");
+        }
+    }
 }
