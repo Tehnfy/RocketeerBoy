@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8909335193231908542}
   - component: {fileID: 1667388938789993238}
   - component: {fileID: 1119819091412866662}
+  - component: {fileID: 7397122361661227926}
   m_Layer: 0
   m_Name: Player Rocket
   m_TagString: Untagged
@@ -104,7 +105,7 @@ MonoBehaviour:
       m_Action: Rotate
       m_Flags: 8
     m_Flags: 0
-  rotateSpeed: 122
+  rotateSpeed: 164
   thrustSpeed: 12
   engineSound: {fileID: 8300000, guid: 52ecd8d4984c0c444b135a1b3c471ad1, type: 3}
   thustParticles: {fileID: 7654630507993843022}
@@ -135,7 +136,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 24
+  m_Constraints: 88
   m_CollisionDetection: 0
 --- !u!65 &8909335193231908542
 BoxCollider:
@@ -272,6 +273,18 @@ MonoBehaviour:
   crashSound: {fileID: 8300000, guid: dc25fff66114e7842905dbe7a6cf70ee, type: 3}
   winParticles: {fileID: 6457210688364011825}
   crashParticles: {fileID: 4227791222462906012}
+--- !u!114 &7397122361661227926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6561411535372163433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd8f181097d62844a59e884cebf6264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2499516694123733526
 PrefabInstance:
   m_ObjectHideFlags: 0
